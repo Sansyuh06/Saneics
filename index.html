@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saneics</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Social Icons and Linktree Logo in the Top Right Corner -->
+    <div class="social-icons">
+        <a href="https://www.instagram.com/sans_yuh/" target="_blank">
+            <img src="D:/code/project/website/typeshi/my-website/assets/images/instagram.png" alt="Instagram Logo">
+        </a>
+        <a href="https://linkedin.com/in/akash-santhnu-sundar-1303a7276/" target="_blank">
+            <img src="D:/code/project/website/typeshi/my-website/assets/images/linkedin.png" alt="LinkedIn Logo">
+        </a>
+        <!-- Linktree Logo -->
+        <a href="https://linktr.ee/sans._.yuh06" target="_blank">
+            <img src="D:/code/project/website/typeshi/my-website/assets/images/linktree.png" alt="Linktree Logo">
+        </a>
+    </div>
+
+    <!-- Video Background -->
+    <video autoplay muted loop id="background-video">
+        <source src="D:\code\project\website\typeshi\my-website\assets\3d\0001-0250.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Home Section -->
+    <section class="slide home">
+        <div class="container">
+            <h1><span class="sane">Sane</span><span class="ics">ics</span></h1>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="slide projects">
+        <header>
+            <h1>Projects</h1>
+        </header>
+        <div class="container">
+            <ul class="project-list">
+                <li>
+                    <label>
+                        <input type="checkbox" disabled> Pixelguild
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" checked disabled> EcoTrail
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" checked disabled> Walmart Antivirus
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" disabled> Drone with arms
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" disabled> Drone Jammer with
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- About the Owner Section -->
+    <section class="slide about">
+        <div class="container about-content">
+            <div class="profile-img">
+                <img src="D:/code/project/website/typeshi/my-website/assets/images/image.png" alt="Profile Picture">
+            </div>
+            <div class="about-text">
+                <h1>About the <span class="owner-text">Owner</span></h1>
+                <p>A Cyber Security Student with interests in freelancing, editing, and IEEE, working on projects beyond my primary domain.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Slow down the video playback by 50%
+        const video = document.getElementById('background-video');
+        video.playbackRate = 0.15; // You can adjust this value to make it slower or faster
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
