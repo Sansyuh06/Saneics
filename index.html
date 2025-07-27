@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        /* Inline styles for modal with enhanced design */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            background: #1a1a1a;
+            margin: 10% auto;
+            padding: 25px;
+            width: 70%;
+            max-width: 900px;
+            border-radius: 15px;
+            color: #ccc;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.4s ease-out;
+            font-family: 'Fira Code', monospace;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .close {
+            color: #ff3333;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .close:hover {
+            color: #cc0000;
+            transform: rotate(90deg);
+        }
+        #modalTitle {
+            font-family: 'TS BLACK BOLD', Arial, sans-serif;
+            color: #ff3333;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333;
+        }
+        #modalDescription {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
+            overflow-y: auto;
+            max-height: 450px;
+            text-align: justify;
+        }
+        .github-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #ff3333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-family: 'Fira Code', monospace;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(255, 51, 51, 0.4);
+            transition: all 0.3s ease-in-out;
+        }
+        .github-btn:hover {
+            background: #cc0000;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 51, 51, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="home">
+        <video autoplay muted loop class="video-background">
+            <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1><span>SANE</span><span>ICS</span></h1>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/santhnu/"><img src="linkedin.png" alt="LinkedIn"></a>
+        <a href="https://linktr.ee/sans_yuh"><img src="linktree.png" alt="Linktree"></a>
+        <a href="https://www.instagram.com/sans_yuh"><img src="instagram.png" alt="Instagram"></a>
+    </div>
+
+    <div class="projects">
+        <h2>My Projects</h2>
+        <div class="project-stack">
+            <div class="project" onclick="openModal('securechain')">
+                <h3>SecureChain</h3>
+            </div>
+            <div class="project" onclick="openModal('hamerspace')">
+                <h3>Hamerspace</h3>
+            </div>
+            <div class="project" onclick="openModal('pixelguild')">
+                <h3>Pixelguild</h3>
+            </div>
+            <div class="project" onclick="openModal('ecotrail')">
+                <h3>EcoTrail</h3>
+            </div>
+            <div class="project" onclick="openModal('scamraksha')">
+                <h3>ScamRaksha</h3>
+            </div>
+            <div class="project" onclick="openModal('ace')">
+                <h3>A.C.E</h3>
+            </div>
+            <div class="project" onclick="openModal('secms')">
+                <h3>SECMS</h3>
+            </div>
+            <div class="project" onclick="openModal('visionsync')">
+                <h3>VisionSync Drone Control</h3>
+            </div>
+            <div class="project" onclick="openModal('nomoremalware')">
+                <h3>NoMoreMalwareMaster</h3>
+            </div>
+            <div class="project" onclick="openModal('susurra')">
+                <h3>Susurra</h3>
+            </div>
+            <div class="project" onclick="openModal('pixtory')">
+                <h3>Pixtory</h3>
+            </div>
+            <div class="project" onclick="openModal('quantumdrive')">
+                <h3>Quantum-Enhanced Driving Behavior Monitor</h3>
+            </div>
+            <div class="project" onclick="openModal('qunart')">
+                <h3>Qunart</h3>
+            </div>
+            <div class="project" onclick="openModal('quantumcircuit')">
+                <h3>Quantum Circuit Simulator</h3>
+            </div>
+            <div class="project" onclick="openModal('quantumerror')">
+                <h3>The Quantum Error Correction Simulator</h3>
+            </div>
+            <div class="project" onclick="openModal('fars')">
+                <h3>FARS</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="founder-section">
+        <h2>Meet the Founder</h2>
+        <div class="founder-content">
+            <img src="image.png" alt="Founder Photo" class="founder-image">
+            <div class="founder-details">
+                <h3>Akash Santhnu Sundar</h3>
+                <p class="founder-title">Founder & CEO</p>
+                <p class="founder-bio"> 
+                    Name Sans.
+                    I build weird tech at 3 AM, break stuff at 4, and somehow fix it by sunrise.
+                    At Saneics a place where half the ideas sound illegal until you realize they’re genius.
+                    I'm not here to disrupt industries. I'm here to fix what shouldn’t have worked in the first place.
+                    Basically, we build cool, mildly dangerous stuff that works and if it doesn’t, I’ll pretend it’s a feature.
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+            <a id="githubLink" class="github-btn" href="#" target="_blank">View Project</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Modal functionality
+        function openModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const githubLink = document.getElementById('githubLink');
+
+            // Reset modal content before setting new content
+            modalTitle.textContent = '';
+            modalDescription.textContent = '';
+            githubLink.href = '#';
+
+            modal.style.display = 'block';
+            modal.style.opacity = '0';
+            setTimeout(() => modal.style.opacity = '1', 10); // Trigger fade-in
+
+            // Set content based on project
+            switch(projectId) {
+                case 'securechain':
+                    modalTitle.textContent = 'SecureChain';
+                    modalDescription.textContent = 'SecureChain is a B2B transaction platform designed to enhance security through biometric authentication and blockchain integration. It provides a mock payment interface where users can simulate transactions with face recognition for verification. The platform demonstrates real-time fraud detection and transaction validation, offering a secure and modern solution for business payments.';
+                    githubLink.href = 'https://github.com/yourusername/securechain';
+                    break;
+                case 'hamerspace':
+                    modalTitle.textContent = 'Hamerspace';
+                    modalDescription.textContent = 'Hamerspace is an innovative platform that compresses and optimizes AI pipelines for deployment on resource-constrained environments like mobile devices and microcontrollers. It offers model shrinking tailored to user-provided hardware specs, ensuring low latency and energy efficiency while maintaining accuracy. The platform provides a unique, adaptive compression process with benchmarks, supporting diverse use cases and future AutoML enhancements.';
+                    githubLink.href = 'https://github.com/yourusername/hamerspace';
+                    break;
+                case 'pixelguild':
+                    modalTitle.textContent = 'Pixelguild';
+                    modalDescription.textContent = 'Pixelguild is a targeted platform that connects video editors and designers with perfectly matched creative projects, addressing the inefficiencies of traditional freelance platforms. It leverages AI to streamline talent sourcing, enabling freelancers to find consistent gigs and businesses to access curated talent with ease. The solution features a freemium model with a beta launch, followed by a paid tiered subscription to enhance user engagement and growth.';
+                    githubLink.href = 'https://github.com/yourusername/pixelguild';
+                    break;
+                case 'ecotrail':
+                    modalTitle.textContent = 'EcoTrail';
+                    modalDescription.textContent = 'EcoTrail is an innovative solution that revolutionizes emissions management for coal mines with an AI-assisted dashboard for real-time monitoring and predictive analytics. It offers tailored decarbonization strategies to help companies achieve carbon neutrality while maintaining profitability and operational efficiency. The platform provides tiered pricing plans, including advanced analytics and dedicated support, to transform mining sustainability.';
+                    githubLink.href = 'https://github.com/yourusername/ecotrail';
+                    break;
+                case 'scamraksha':
+                    modalTitle.textContent = 'ScamRaksha';
+                    modalDescription.textContent = 'Anti-Scammer is a lightweight desktop application designed to enhance user-side security against online scams, targeting vulnerable users like the elderly and those with limited technical skills. This project features automated blocking of scam-related domains, detection and disabling of suspicious background services, and a user-friendly interface. It ensures minimal resource usage and compatibility with Windows OS, with key achievements including real-time monitoring and activity logging.';
+                    githubLink.href = 'https://github.com/yourusername/scamraksha';
+                    break;
+                case 'ace':
+                    modalTitle.textContent = 'A.C.E';
+                    modalDescription.textContent = 'A.C.E Advanced Counter-Emitter System developed for IDEX is a C-UAS bubble designed to safeguard critical infrastructure from satellite-guided drone swarms and UAS. It features threat detection, tracking, and neutralization within a 25-30 km range using GNSS jamming and spoofing. The system includes portable, substation, and 4-cell tower jamming modes, addressing coverage gaps in existing radar and RF technologies with AI-driven adaptive jamming.';
+                    githubLink.href = 'https://github.com/yourusername/ace';
+                    break;
+                case 'secms':
+                    modalTitle.textContent = 'SECMS';
+                    modalDescription.textContent = 'SECMS is an IoT retrofit module that upgrades traditional electricity meters into smart systems for real-time energy monitoring. Built for the 2025 Agentic AI Hackathon, it offers AI-driven insights, appliance-level tracking via WattFinder, secure payments, and alerts for household. Targeting 250M+ households. The system uses Arduino/RPi, Wi-Fi/LoRa, cloud AI, and a mobile app. Its business model includes B2C sales, B2B2G partnerships, and premium analytics subscriptions.';
+                    githubLink.href = 'https://github.com/yourusername/secms';
+                    break;
+                case 'visionsync':
+                    modalTitle.textContent = 'VisionSync Drone Control';
+                    modalDescription.textContent = 'VisionSync is an innovative drone control system integrating computer vision and robotics for precise, real-time navigation. Developed for a robotics challenge, it uses Mediapipe for hand tracking, OpenCV for face and object detection, and PyBullet for robotic arm simulation. The system enables drones to follow black objects or hand gestures, with face detection enhancing security. Its lightweight design ensures low latency, making it ideal for dynamic environments requiring adaptive control.';
+                    githubLink.href = 'https://github.com/yourusername/visionsync';
+                    break;
+                case 'nomoremalware':
+                    modalTitle.textContent = 'NoMoreMalwareMaster';
+                    modalDescription.textContent = 'NoMoreMalware is a machine learning-based tool designed to detect and neutralize malicious software by analyzing Portable Executable (PE) files. It uses sklearn’s RandomForest and DecisionTree classifiers to extract features like entropy, resource sizes, and ASCII-based code analysis for threat detection and neutralization. Processing a dataset from a GitHub repository, it ensures high-accuracy malware identification. Ideal for bolstering system security, it offers real-time detection via a Python script.';
+                    githubLink.href = 'https://github.com/yourusername/nomoremalware';
+                    break;
+                case 'susurra':
+                    modalTitle.textContent = 'Susurra';
+                    modalDescription.textContent = 'Susurra is a lightweight, LAN-based chat application designed for environments without internet access, such as college campuses, allowing users to communicate via local Wi-Fi networks. Built with Python, it uses UDP broadcasting with XOR encryption for secure messaging and integrates VITA TTS for optional voice output of messages. The app features a user-friendly interface, real-time chat, and commands like /clear and /tts_on, with Wi-Fi networks serving as chatrooms. Ideal for offline communication, it supports seamless peer-to-peer interaction.';
+                    githubLink.href = 'https://github.com/yourusername/susurra';
+                    break;
+                case 'pixtory':
+                    modalTitle.textContent = 'Pixtory';
+                    modalDescription.textContent = 'Physics Equation Simulator is an ed-tech platform that bridges physics education with real-time, interactive simulations of complex equations. It offers an intuitive interface for students and educators to visualize and apply theoretical concepts practically. Operating on a subscription model, it targets educational institutions for revenue.';
+                    githubLink.href = 'https://github.com/yourusername/pixtory';
+                    break;
+                case 'quantumdrive':
+                    modalTitle.textContent = 'Quantum-Enhanced Driving Behavior Monitor';
+                    modalDescription.textContent = 'Quantum-Enhanced Driving Behavior Monitor is a Python-based application that analyzes driving behavior using simulated MPU6050 sensor data. The process starts by collecting gyroscope and accelerometer data from the driver via the MPU6050 sensor. This data is sent to a Python backend for preprocessing and feature extraction. The processed features are then mapped into quantum space using a quantum feature map. A Quantum Support Vector Machine (QSVM) classifies the driving behavior as aggressive or smooth. Finally, quantum error detection is applied to ensure reliable results despite quantum noise.';
+                    githubLink.href = 'https://github.com/yourusername/quantumdrive';
+                    break;
+                case 'qunart':
+                    modalTitle.textContent = 'Qunart';
+                    modalDescription.textContent = 'Qunart is a quantum-enhanced AI pipeline compressor that optimizes machine learning models by reducing feature dimensionality while preserving accuracy. It uses Qiskit for quantum feature evaluation via ZZFeatureMap, computing relevance scores for features. Classical ML models (RandomForest, LogisticRegression, SVM) are employed for robust classification on compressed datasets. Features are ranked using quantum scores and Pearson correlation, selecting top features based on a user-defined compression ratio. The system supports CSV and standard datasets (Iris, Wine) with preprocessing for missing values and exports detailed compression reports and models.';
+                    githubLink.href = 'https://github.com/yourusername/qunart';
+                    break;
+                case 'quantumcircuit':
+                    modalTitle.textContent = 'Quantum Circuit Simulator';
+                    modalDescription.textContent = 'The Quantum Circuit Simulator is a Python-based application using Cirq and PyQt5, designed for users who find Qiskit challenging, offering an intuitive interface to design, visualize, and simulate quantum circuits. Users can add qubits and apply gates (Hadamard, X, Y, Z, S, T, CNOT, SWAP, Measure) through a user-friendly GUI with dynamic qubit and gate selection controls. The circuit is visualized graphically, displaying qubits as lines and gates as colored shapes with real-time updates. Simulations run with 1024 repetitions, showing measurement results and probabilities in a text output. The system supports adding/removing qubits, clearing circuits, and handles errors for invalid gate applications, making it an accessible tool for quantum computing experimentation.';
+                    githubLink.href = 'https://github.com/yourusername/quantumcircuit';
+                    break;
+                case 'quantumerror':
+                    modalTitle.textContent = 'The Quantum Error Correction Simulator';
+                    modalDescription.textContent = 'The Quantum Error Correction Simulator implements quantum error correction codes (3-qubit bit/phase flip, 5-qubit, 7-qubit Steane, 9-qubit Shor) to protect logical qubits. It simulates error types (bit flip, phase flip, depolarizing, amplitude damping) on a quantum register. Qubits are initialized with customizable states and encoded using selected codes. The system measures error syndromes and applies corrections based on code-specific logic. Decoding uses majority voting or simplified methods to recover the logical qubit state.';
+                    githubLink.href = 'https://github.com/yourusername/quantumerror';
+                    break;
+                case 'fars':
+                    modalTitle.textContent = 'FARS';
+                    modalDescription.textContent = 'The Fully Automated Robotic System (FARS) integrates machine learning, face recognition, real-time data analytics, cloud-based databases, and IoT to enhance campus security and operational efficiency. It automates individual identification, manages access control, and provides real-time data to administrators. Key features include OpenCV-based face recognition, Firebase Cloud Server for data storage, and hardware like NodeMCU ESP32 and Raspberry Pi. The system prioritizes data privacy, scalability, and integration with existing infrastructure. Future enhancements include predictive analytics, mobile app integration, and advanced encryption for enhanced privacy.';
+                    githubLink.href = 'https://github.com/yourusername/fars';
+                    break;
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                modal.style.opacity = '1'; // Reset opacity for next open
+            }, 300); // Match transition duration
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

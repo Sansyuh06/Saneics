@@ -1,0 +1,259 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Load Custom Font */
+@font-face {
+    font-family: 'TS BLACK BOLD';
+    src: url('TSBLACKBOLD.ttf') format('truetype');
+}
+
+body {
+    background-color: #2a2a2a;
+    font-family: 'Fira Code', monospace;
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Home Section with Full-Screen Video Background */
+.home {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    animation: moveBackground 90s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.home h1 {
+    font-size: 4em;
+    font-family: 'TS BLACK BOLD', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    padding: 0 5px;
+}
+
+.home h1 span:first-child {
+    color: #ff3333;
+}
+
+.home h1 span:last-child {
+    color: #fff;
+}
+
+/* Social Icons */
+.social-icons {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Projects Section */
+.projects {
+    padding: 50px 0;
+    background: #030303;
+    text-align: center;
+    width: 100%;
+}
+
+.projects h2 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #ff3333;
+    text-shadow: 0 0 3px #ff3333, 0 0 6px #ff3333;
+    font-family: 'TS BLACK BOLD', Arial, sans-serif;
+}
+
+.project-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 0 20px;
+    max-width: none;
+}
+
+.project {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(255, 51, 51, 0.2), 0 0 10px rgba(255, 51, 51, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 8px rgba(255, 51, 51, 0.3), 0 0 15px rgba(255, 51, 51, 0.1);
+}
+
+.project h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #ff3333;
+    text-shadow: 0 0 3px #ff3333;
+    font-family: 'TS BLACK BOLD', Arial, sans-serif;
+}
+
+/* Founder Section */
+.founder-section {
+    padding: 80px 0;
+    background: #030303;
+    text-align: center;
+    width: 100%;
+    max-width: 1920px; /* Matches 1920px width */
+    min-height: 1080px; /* Matches 1080p height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.founder-section h2 {
+    font-size: 3.5em;
+    margin-bottom: 40px;
+    color: #ff3333;
+    text-shadow: 0 0 3px #ff3333, 0 0 6px #ff3333;
+    font-family: 'TS BLACK BOLD', Arial, sans-serif;
+}
+
+.founder-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1600px; /* Balanced within 1920px */
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.founder-image {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 51, 51, 0.2);
+}
+
+.founder-details {
+    text-align: left;
+    max-width: 800px;
+}
+
+.founder-details h3 {
+    font-size: 2.2em;
+    color: #ff3333;
+    margin-bottom: 10px;
+    font-family: 'TS BLACK BOLD', Arial, sans-serif;
+}
+
+.founder-title {
+    font-size: 1.3em;
+    color: #ccc;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.founder-bio {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #bbb;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1600px) {
+    .founder-section {
+        min-height: auto; /* Remove fixed height for smaller screens */
+        padding: 50px 0;
+    }
+
+    .founder-content {
+        flex-direction: column;
+        gap: 30px;
+        max-width: 90%;
+    }
+
+    .founder-image {
+        width: 300px;
+        height: 300px;
+    }
+
+    .founder-details {
+        text-align: center;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home h1 {
+        font-size: 2.5em;
+    }
+
+    .projects h2, .founder-section h2 {
+        font-size: 2em;
+    }
+
+    .project {
+        padding: 15px;
+    }
+
+    .founder-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .founder-details h3 {
+        font-size: 1.8em;
+    }
+
+    .founder-title {
+        font-size: 1.1em;
+    }
+
+    .founder-bio {
+        font-size: 1em;
+    }
+}
